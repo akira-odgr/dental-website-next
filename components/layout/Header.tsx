@@ -56,6 +56,7 @@ export const Header = () => {
                                         pathname === item.href &&
                                             "text-primary-600"
                                     )}
+                                    onClick={handleClick}
                                 >
                                     {item.label}
                                 </Link>
