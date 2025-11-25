@@ -1,6 +1,8 @@
+import { teamCardItems, valuesItems } from "@/data/data";
 import { cn } from "@/libs/utils/cn";
+import { RiInstagramLine, RiYoutubeFill } from "@remixicon/react";
 import Image from "next/image";
-import React from "react";
+import Link from "next/link";
 
 export const AboutPage = () => {
     return (
@@ -85,6 +87,119 @@ export const AboutPage = () => {
                                 className="rounded-xl rotate-[9deg]"
                             />
                         </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Our values */}
+            <section className="section">
+                <div className="container">
+                    {/* Title */}
+                    <div className="text-center max-w-xl mx-auto">
+                        <p className="subtitle">Values</p>
+                        <h2 className="title">
+                            The Core Principles That Drive Everything We Do
+                        </h2>
+                    </div>
+
+                    {/* Wrapper */}
+                    <div className={cn("mt-16 grid gap-5", "sm:grid-cols-2")}>
+                        {valuesItems.map((item) => (
+                            <div
+                                key={item.id}
+                                className="border border-primary-200 p-6 rounded-lg flex items-start gap-3.5 bg-white"
+                            >
+                                {/* Icon */}
+                                <span className="shrink-0 size-12 bg-primary-100 flex items-center justify-center rounded-md text-primary-700">
+                                    <item.icon />
+                                </span>
+
+                                {/* content */}
+                                <div>
+                                    <h3 className="card-title">{item.title}</h3>
+                                    <p>{item.text}</p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+
+                    {/* Btn */}
+                    <Link
+                        href={"/service"}
+                        className={cn(
+                            "secondary-btn block mt-10 max-w-max mx-auto",
+                            "lg:mt-28"
+                        )}
+                    >
+                        BROWSE SERVICES
+                    </Link>
+                </div>
+            </section>
+
+            {/* Our Team */}
+            <section className="section">
+                <div className="container">
+                    {/* Title`` */}
+                    <div className="max-w-xl text-center mx-auto">
+                        <p className="subtitle">Our Team</p>
+                        <h2 className="title">
+                            Skilled Dentists Committed to Your Oral Health
+                        </h2>
+                    </div>
+
+                    {/* wrapper */}
+                    <div
+                        className={cn(
+                            "mt-11 grid gap-8",
+                            "sm:grid-cols-2",
+                            "lg:grid-cols-4"
+                        )}
+                    >
+                        {teamCardItems.map((item) => (
+                            <div
+                                key={item.id}
+                                className="rounded-lg overflow-hidden shadow-lg"
+                            >
+                                {/* Image */}
+                                <div className="bg-primary-100">
+                                    <Image
+                                        src={item.img}
+                                        alt={item.name}
+                                        width={260}
+                                        height={244}
+                                        className="mx-auto"
+                                    />
+                                </div>
+
+                                {/* content */}
+                                <div className="p-5 text-center space-y-1">
+                                    <h3 className="card-title">{item.name}</h3>
+                                    <p>{item.text}</p>
+                                    <div className="flex items-center justify-center gap-2.5">
+                                        <a
+                                            href="#"
+                                            className={cn(
+                                                "size-9 bg-primary-500 text-white flex items-center justify-center rounded-full transition-colors",
+                                                "hover:bg-primary-700",
+                                                "focus:bg-primary-700"
+                                            )}
+                                        >
+                                            <RiInstagramLine />
+                                        </a>
+                                        <a
+                                            href="#"
+                                            className={cn(
+                                                "size-9 bg-primary-500 text-white flex items-center justify-center rounded-full transition-colors",
+                                                "hover:bg-primary-700",
+                                                "focus:bg-primary-700"
+                                            )}
+                                        >
+                                            <RiYoutubeFill />
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </section>
