@@ -29,7 +29,7 @@ export const FaqCard = ({ title, text }: faqCardProps) => {
             <div
                 className={cn(
                     "max-h-0 overflow-y-hidden transition-[max-height]",
-                    isOpen && "max-h-60 overflow-y-auto"
+                    isOpen && "max-h-auto overflow-y-auto"
                 )}
             >
                 <p>{text}</p>
